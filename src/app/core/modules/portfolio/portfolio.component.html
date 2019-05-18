@@ -1,0 +1,3 @@
+
+<app-public-portfolio *ngIf="!(AppUser | async)" ></app-public-portfolio>
+<app-admin-portfolio *ngIf="(AppUser | async)"></app-admin-portfolio>

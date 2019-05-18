@@ -1,0 +1,64 @@
+<h2 mat-dialog-title>Save Skill
+    <div class="float-right" *ngIf="skill.key">
+        <mat-icon (click)="deleteSkill(skill)" class="icons text-danger" aria-hidden="false" aria-label="delete icon">delete</mat-icon>
+    </div>
+</h2> 
+
+<mat-dialog-content>
+
+  <form #f = "ngForm">
+    
+    <div class="form-group">
+      <mat-form-field>
+        <input 
+          required 
+          matInput
+          placeholder="Name of skill" 
+          name="skillName"
+          [(ngModel)]="skill && skill.skillName"
+          #skillName = ngModel
+          >
+          <mat-error *ngIf="skillName.touched && skillName.invalid">
+            <small *ngIf="skillName.hasError('required')">Name of the skill is required</small>
+          </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+
+      <mat-form-field>
+          <mat-select
+          name="type"
+          [(ngModel)]="skill && skill.type"
+          required
+          placeholder="Type of skill"
+          >
+            <mat-option value="backEnd">Back End</mat-option>
+            <mat-option value="frontEnd">Front End</mat-option>
+            <mat-option value="others">Others</mat-option>
+          </mat-select>
+        </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field>
+        <input
+          matInput
+          type="number"
+          required
+          placeholder="Years of experience" 
+          name="years"
+          [(ngModel)]="skill && skill.years"
+          #years = "ngModel"
+        >
+        <mat-error *ngIf="skillName.touched && skillName.invalid">
+          <small *ngIf="skillName.hasError('required')">Name of the skill is required</small>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <button mat-raised-button [disabled]="f.invalid" class="bg-primary btn-block" type="submit" (click)="save()">Save</button>
+    
+  </form>
+
+</mat-dialog-content>

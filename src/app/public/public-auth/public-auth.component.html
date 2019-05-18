@@ -1,0 +1,58 @@
+
+
+    <section class="section-wrapper section-experience text-white">
+        <div class="container-fluid">
+
+            <div class="col-12">
+                <form class="form-signin" #loginFrom="ngForm" name="signIn">
+          
+          
+                  <h1 class="form-signin-heading" style="margin-bottom: -14px" >Please sign in </h1>
+                  <small>to modify the contents of the profile</small>
+                  <div class="form-group">
+                    <mat-form-field>
+                      <input 
+                      matInput
+                      ngModel
+                      #emailSignIn = "ngModel"
+                      name="emailSignIn" type="emailSignIn" id="inputEmail" placeholder="Email address" required email>
+                      <mat-error *ngIf="emailSignIn.touched && emailSignIn.invalid">
+                        <small *ngIf="emailSignIn.hasError('required')">Email is required</small>
+                        <small *ngIf="emailSignIn.hasError('email')">This is not a valid email</small>
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+          
+        
+                  <div class="form-groupe">
+                    <mat-form-field>
+                      <input 
+                      matInput
+                      ngModel
+                      #passwordSignIn = "ngModel"
+                      name="passwordSignIn" type="password" id="inputPassword" placeholder="Password" required>
+  
+                      <mat-error *ngIf="passwordSignIn.touched && passwordSignIn.invalid">
+                        <small>Password is required</small>
+                      </mat-error>
+                      
+                    </mat-form-field>
+                  </div>
+                  
+                  
+                  <br>
+                  <button mat-raised-button [disabled]="loginFrom.invalid" class="bg-primary btn-block" type="submit" (click)="login(loginFrom)">Sign in</button>
+                </form>
+                  
+                <div class="text-center mt-3">
+                  <button (click)="loginAsGuest()" mat-raised-button type="button" class="bg-info btn-block" type="submit">Or sign in as guest</button>
+                  <small>to see how it ticks</small>
+                </div>
+
+              </div>
+            </div>
+
+    </section>
+
+
+    

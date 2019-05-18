@@ -1,0 +1,67 @@
+
+
+<section class="section-wrapper skills-wrapper">
+        <div class="container-fluid">
+            <div class="row border-bottom mb-5">
+                <div class="col-md-12">
+                    <div class="section-title">
+                            <app-home-glitch [text]="'Skills'" ></app-home-glitch>
+                            <button (click)="addSkill()" class="bg-success" mat-fab> <mat-icon>add</mat-icon> </button>
+                    </div>
+                </div>
+            </div>
+            <!--.row-->
+            <div class="row p-3">
+
+                <div class="col-12 mb-5">
+                    <mat-toolbar color="primary">
+                        <mat-toolbar-row>
+                            Back End Skills
+                        </mat-toolbar-row>
+                    </mat-toolbar>
+                    <span *ngFor="let skill of backEnd"
+                    class="badge mr-2"
+                    [ngClass] = "'badge-' + skill.color"
+                    (click)="editSkill(skill)" 
+                    >
+                    {{ skill.skillName }} - {{ skill.years }} year(s) of experience
+                    </span>
+
+                </div>
+
+                <div class="col-12 mb-5">
+                    <mat-toolbar color="primary">
+                        <mat-toolbar-row>
+                            Front End Skills
+                        </mat-toolbar-row>
+                    </mat-toolbar>
+                    <span *ngFor="let skill of frontEnd"
+                    class="badge mr-2"
+                    [ngClass] = "'badge-' + skill.color"
+                    (click)="editSkill(skill)" 
+                    >
+                    {{ skill.skillName }} - {{ skill.years }} year(s) of experience
+                    </span>
+
+                </div>
+
+                <div class="col-12 mb-5">
+                    <mat-toolbar color="primary">
+                        <mat-toolbar-row>
+                            Other Skills
+                        </mat-toolbar-row>
+                    </mat-toolbar>
+                    <span *ngFor="let skill of others"
+                    class="badge mr-2"
+                    [ngClass] = "'badge-' + skill.color"
+                    (click)="editSkill(skill)" 
+                    >
+                    {{ skill.skillName }} - {{ skill.years }} year(s) of experience
+                    </span>
+
+                </div>
+            </div>
+            <!--.row -->
+        </div>
+        <!-- .container-fluid -->
+    </section>

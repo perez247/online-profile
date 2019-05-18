@@ -1,0 +1,3 @@
+
+<app-public-education *ngIf="!(AppUser | async)" ></app-public-education>
+<app-admin-education *ngIf="(AppUser | async)"></app-admin-education>

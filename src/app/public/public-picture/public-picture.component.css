@@ -1,0 +1,11 @@
+
+.strong {
+    font-weight: 900;
+}
+
+.download-cv {
+    position: absolute;
+    top: 43px;
+    right: 0px;
+    z-index: 99;
+}

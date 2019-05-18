@@ -1,0 +1,12 @@
+<mat-nav-list>
+    <h2>Are you sure about this ... {{ details.name }}?</h2>
+    <a (click)="delete($event); close($event)" class="bg-danger text-white" mat-list-item>
+      <span mat-line>Yes</span>
+      <span mat-line>Delete it already</span>
+    </a>
+  
+    <a (click)="close($event)" href="https://docs.google.com/" mat-list-item>
+      <span mat-line>No</span>
+      <span mat-line>I think I've changed my mind</span>
+    </a>
+  </mat-nav-list>

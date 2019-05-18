@@ -1,0 +1,3 @@
+
+<app-admin-profile *ngIf="(AppUser | async)"></app-admin-profile>
+<app-public-profile *ngIf="!(AppUser | async)"></app-public-profile>

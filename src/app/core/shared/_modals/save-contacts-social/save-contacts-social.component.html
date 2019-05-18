@@ -1,0 +1,46 @@
+.<h2 mat-dialog-title>Save Education</h2>
+
+<mat-dialog-content>
+
+  <form #form="ngForm">
+    
+    <div class="form-group mt-2">
+      <mat-form-field>
+          <mat-select
+            name="name"
+            placeholder="Social Account"
+            required
+            [(ngModel)]="data && data.name"
+            #socialLink = "ngModel"
+          >
+            <mat-option *ngFor="let social of contactService.socials" [value]="social">{{ social }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="socialLink.touched && socialLink.invalid">
+            <small *ngIf="socialLink.hasError('required')">Please select a social link</small>
+          </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field>
+        <input 
+          name="url"
+          matInput
+          required
+          url
+          placeholder="Url Link"
+          [(ngModel)]="data && data.url"
+          #urlLink = "ngModel"
+          >
+          <mat-error class="message-block" *ngIf="urlLink.touched && urlLink.invalid">
+            <small *ngIf="urlLink.hasError('required')">Url is required</small>
+            <small *ngIf="urlLink.hasError('url')">Url is Invalid</small>
+          </mat-error>
+      </mat-form-field>
+    </div>
+
+    <button mat-raised-button [disabled]="form.invalid" class="bg-primary btn-block" type="submit" (click)="save()">Save</button>
+    
+  </form>
+
+</mat-dialog-content>

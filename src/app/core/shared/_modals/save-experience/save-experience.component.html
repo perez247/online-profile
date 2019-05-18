@@ -1,0 +1,111 @@
+.<h2 mat-dialog-title>Save Experience</h2>
+
+<mat-dialog-content>
+
+  <form [formGroup]="form">
+    
+    <div class="form-group mt-2">
+      <mat-form-field>
+        <input 
+          matInput
+          placeholder="Name of Company"
+          formControlName="companyName"
+          >
+          <mat-error *ngIf="form.get('companyName').touched && form.get('companyName').invalid">
+            <small *ngIf="form.get('companyName').hasError('required')">Name of the company is required</small>
+          </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field>
+        <input 
+          matInput
+          placeholder="Branch of the company"
+          formControlName="location"
+          >
+          <mat-error *ngIf="form.get('location').touched && form.get('location').invalid">
+            <small *ngIf="form.get('location').hasError('required')">Location of where you worked is required</small>
+          </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field>
+        <input 
+          matInput
+          placeholder="Role in the Company"
+          formControlName="role"
+          >
+          <mat-error *ngIf="form.get('role').touched && form.get('role').invalid">
+            <small *ngIf="form.get('role').hasError('required')">Role is required</small>
+          </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col col-6">
+                <mat-form-field>
+                    <input matInput [matDatepicker]="start" placeholder="Start Date" formControlName="startDate">
+                    <mat-datepicker-toggle matSuffix [for]="start"></mat-datepicker-toggle>
+                    <mat-datepicker #start
+                                    startView="multi-year"
+                                    (yearSelected)="chosenYearHandler($event, 'startDate')"
+                                    (monthSelected)="chosenMonthHandler($event, start, 'startDate')"
+                                    panelClass="example-month-picker">
+                    </mat-datepicker>
+                    <mat-error class="message-block" *ngIf="form.get('startDate').touched && form.get('startDate').invalid">
+                        <small *ngIf="form.get('startDate').hasError('required')">Start date is required</small>
+                        <small *ngIf="form.get('startDate').hasError('invalidDateFormat')">Date is invalid</small>
+                        <small *ngIf="form.get('startDate').hasError('invalidDateLogic')">Date should not be in the future</small>
+                      </mat-error>
+                  </mat-form-field>
+            </div>
+    
+            <div class="col col-6">
+                <mat-form-field>
+                    <input matInput [matDatepicker]="end" placeholder="End Date" formControlName="endDate">
+                    <mat-datepicker-toggle matSuffix [for]="end"></mat-datepicker-toggle>
+                    <mat-datepicker #end
+                                    startView="multi-year"
+                                    (yearSelected)="chosenYearHandler($event, 'endDate')"
+                                    (monthSelected)="chosenMonthHandler($event, end, 'endDate')"
+                                    panelClass="example-month-picker">
+                    </mat-datepicker>
+                    <mat-error class="message-block" *ngIf="form.get('endDate').touched && form.get('endDate').invalid">
+                        <small *ngIf="form.get('endDate').hasError('invalidDateFormat')">Date is invalid</small>
+                        <small *ngIf="form.get('endDate').hasError('invalidDateLogic')">Date should not be in the future</small>
+                        <small *ngIf="form.get('endDate').hasError('invalidStartEnd')">Start Date is ahead of end date</small>
+                        <small *ngIf="form.get('endDate').hasError('required')">End date is required</small>
+                      </mat-error>
+                  </mat-form-field>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="form-group">
+      <mat-form-field>
+        <textarea
+          formControlName="achievements"
+          matInput
+          placeholder="Achievements in the Company"
+          rows=5
+          maxlength="500"
+        >
+        </textarea>
+        <mat-hint>
+          {{ form.get('achievements').value?.length }}/500
+        </mat-hint>
+        <mat-error *ngIf="form.get('achievements').touched && form.get('achievements').invalid">
+          <small *ngIf="form.get('achievements').hasError('required')">At least one achievement</small>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <button mat-raised-button [disabled]="form.invalid" class="bg-primary btn-block" type="submit" (click)="save()">Save</button>
+    
+  </form>
+
+</mat-dialog-content>

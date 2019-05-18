@@ -1,0 +1,60 @@
+<section class="intro section-wrapper text-white">
+  <div class="container-fluid">
+      <div class="row border-bottom mb-5">
+          <div class="col-md-12">
+              <div class="section-title">
+                  <h1>What I am all about.</h1>
+              </div>
+          </div>
+      </div>
+      
+      <div class="col-md-12">
+            <form #f="ngForm" (ngSubmit)="save()">
+
+              <div class="form-group">
+                <mat-form-field>
+                    <textarea 
+                    matInput
+                    [(ngModel)]="profile && profile.description_1" 
+                    name="description_1" 
+                    #des_1 = "ngModel"
+                    required
+                    placeholder="First description of yourself"
+                    rows="6"
+                    maxlength="1000"
+                >
+                </textarea>
+                <mat-error *ngIf="des_1.touched && des_1.invalid">
+                    <small *ngIf="des_1.errors['required']">Description is required </small>
+                </mat-error >
+
+                <mat-hint>
+                    {{ des_1.value?.length }}/1000
+                </mat-hint>
+
+                </mat-form-field>
+              </div>
+
+              <div class="form-group">
+                  <mat-form-field>
+                        <textarea 
+                        matInput
+                        [(ngModel)]="profile && profile.description_2" 
+                        name="description_2" 
+                        #des_2 ="ngModel"
+                        rows="6"
+                        maxlength="1000"
+                        placeholder="More description about yourself (optional)"
+                            >
+                        </textarea>
+                        <mat-hint>
+                            {{ des_2.value?.length }}/1000
+                        </mat-hint>
+                  </mat-form-field>
+                </div>
+
+                <button [disabled]="f.invalid" mat-raised-button class="bg-primary btn-block">Save</button>
+            </form>
+          </div>
+  </div>
+</section>

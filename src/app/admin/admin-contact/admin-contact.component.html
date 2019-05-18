@@ -1,0 +1,56 @@
+<section class="section-contact section-wrapper text-white">
+    <div class="container-fluid">
+        <div class="row border-bottom mb-1">
+            <div class="col-md-12">
+                <div class="section-title">
+                      <app-home-glitch [text]="'Contact'" ></app-home-glitch>
+                      <button [disabled]="anyChange()" (click)="save()" mat-raised-button class="btn-primary col-xs-12 mx-3">Save</button>
+                </div>
+            </div>
+        </div>
+        <!--.row-->
+        <div class="row my-0">
+
+                  <div class="col col-12">
+                      <h2>Social Links 
+                      <span class="badge mx-2 badge-pill badge-success shadow" style="cursor: pointer;" (click)="editSocialLink({})">
+                          <mat-icon aria-hidden="false" aria-label="delete icon">add</mat-icon>
+                      </span>
+                    </h2>
+                  </div>
+                    <div class="col col-4 my-2" *ngFor="let icon of contacts?.socialLinks">
+                      
+                        <div class="shadow border border-primary">
+                          <a  [href]="icon.url" target="_blank" class="d-block">
+                            <i class="fa " [ngClass]=" 'fa-' + icon.name" ></i>
+                          </a>
+
+                        <mat-icon (click)="editSocialLink(icon)" class="ac-icon" aria-hidden="false" aria-label="edit icon">edit</mat-icon>
+                        <mat-icon (click)="removeSocialLink(icon)" class="ac-icon" aria-hidden="false" aria-label="delete icon">delete</mat-icon>
+                        </div>
+
+                    </div>
+                    <div class="col col-12 my-3">
+                        <mat-form-field>
+                            <input 
+                            placeholder="Mobile Number"
+                            matInput 
+                            name="phone"
+                            [(ngModel)]="contacts && contacts.phone"
+                            >
+                        </mat-form-field>
+                    </div>
+                    <div class="col col-12">
+                      <mat-form-field>
+                          <input 
+                            placeholder="Email Address"
+                            matInput 
+                            name="phone"
+                            [(ngModel)]="contacts && contacts.email"
+                          >
+                      </mat-form-field>
+                    </div>
+        </div>
+    </div>
+    <!--.container-fluid-->
+  </section>

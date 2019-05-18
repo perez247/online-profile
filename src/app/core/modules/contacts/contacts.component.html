@@ -1,0 +1,2 @@
+<app-public-contact *ngIf="!(AppUser | async)" ></app-public-contact>
+<app-admin-contact *ngIf="(AppUser | async)"></app-admin-contact>

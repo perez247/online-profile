@@ -1,0 +1,35 @@
+
+    <header class="header">
+        <div class="content text-center">
+            <h1>Hi, I'm</h1>
+
+            <!-- <p class="strong">
+                    <span class="h1 text-primary">A</span>riweriokuma  
+                    <span class="h1 text-primary">P</span>ere
+                    <span class="h1 text-primary">E</span>xcellence
+            </p> -->
+            <div>
+                <!-- <app-home-glitch [text]="'Ariweriokuma Excellence Pere'"></app-home-glitch> -->
+                <app-wrapper-header-glitch [text]="'Ariweriokuma Excellence Pere'"></app-wrapper-header-glitch>
+                <span class="text-white h5">a Web Developer</span>
+            </div>
+            <ul class="social-icon">
+                <li *ngFor="let icon of contacts?.socialLinks" >
+                    <a [href]="icon.url" target="_blank">
+                        <i class="fa fa-facebook" [ngClass]="'fa-' + icon.name" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+            
+            <span class="text-white">
+                <small><a (click)="showLoader()" [routerLink]="['/education']"  class="m-2 text-white">Education</a></small> 
+                <small><a (click)="showLoader()" [routerLink]="['/experience']" class="m-2 text-white">Work Experience</a></small>
+            </span>
+        </div>
+        <div class="profile-img"></div>
+
+        <a [href]="cvLink" class="download-cv">
+            <button mat-raised-button class="btn-primary col-xs-12 mx-3">Download C.V</button>
+        </a>
+    </header>
+    <!-- .header-->

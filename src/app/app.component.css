@@ -1,0 +1,27 @@
+
+.sidenav {
+    position: fixed;
+    top: 35px;
+    left: 35px;
+    z-index: 999;
+}
+
+.sidenav-button {
+    /* background-color: blue !important; */
+    color: #fff !important;
+}
+
+.menu-content {
+    overflow-y: scroll;
+    height: 540px;
+}
+
+.content-loader {
+    position: absolute;
+    background-color: #191F26;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+    /* padding-top: 50%; */
+    text-align: center;
+}

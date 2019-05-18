@@ -1,0 +1,19 @@
+
+.custom-navbtn {
+    height: 500px;
+    width: 250px;
+    background-color: #F8F9FA;
+    /* position: fixed; */
+}
+
+.custom-navbtn div.row {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+
+.list-group-item.active {
+    background-color:  #673ab7;
+    border-color:  #673ab7;
+    /* color: #fff !important; */
+}

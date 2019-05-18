@@ -1,0 +1,31 @@
+<section class="section-contact section-wrapper text-white">
+  <div class="container-fluid">
+      <div class="row border-bottom mb-5">
+          <div class="col-md-12">
+              <div class="section-title">
+                    <app-home-glitch [text]="'Get in touch '" ></app-home-glitch>
+              </div>
+          </div>
+      </div>
+      <!--.row-->
+      <div class="row">
+          <div class="col-md-12">
+                
+              <p class=" h6 mb-3" >
+                    <span class="d-block"><i class="fa fa-phone fa-lg" aria-hidden="true"></i> : {{ contacts?.phone }}</span>
+                    <br><span class="d-block"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i> : {{ contacts?.email }}</span>
+              </p>
+                <div class="row px-2 mb-5">
+
+                    <div class="shadow" *ngFor="let icon of contacts?.socialLinks">
+                        <a  [href]="icon.url" target="_blank" class="d-block">
+                        <i class="fa fa-c" [ngClass]=" 'fa-' + icon.name" ></i>
+                        </a>
+                    </div>
+
+                </div>
+          </div>
+      </div>
+  </div>
+  <!--.container-fluid-->
+</section> 

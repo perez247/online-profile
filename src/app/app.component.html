@@ -1,0 +1,37 @@
+<mat-sidenav-container *ngIf="true">
+  <mat-sidenav #sidenav role="navigation">
+    <app-public-nav (closeSidenav)="sidenav.toggle()"></app-public-nav>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class="sidenav" (click)="sidenav.toggle()">
+      <button mat-fab color="primary" class="sidenav-button">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <div>
+      <div class="row no-gutters">
+        <div class="col col-12 col-md-6 blocks">
+          <app-public-picture></app-public-picture>
+        </div>
+
+        <div class="col col-12 col-md-6 blocks bg-dark" #content>
+          <div @fade class="content-loader" *ngIf="(loader | async)">
+            <img
+              class="img-fluid"
+              src="https://media.giphy.com/media/11FuEnXyGsXFba/giphy.gif"
+              alt=""
+            />
+          </div>
+          <div class="menu-content text-white">
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+        <!-- .right-col-block -->
+      </div>
+      <!-- .columns-block -->
+    </div>
+    <!-- #main-wrapper -->
+  </mat-sidenav-content>
+</mat-sidenav-container>

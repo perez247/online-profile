@@ -1,0 +1,95 @@
+<h2 mat-dialog-title>Save Porfolio</h2>
+
+<mat-dialog-content>
+
+  <form #f = "ngForm">
+    
+    <div class="form-group">
+      <mat-form-field>
+        <input 
+          required 
+          matInput
+          placeholder="Name of Project" 
+          name="projectName"
+          [(ngModel)]="portfolio && portfolio.projectName"
+          #projectName = ngModel
+          >
+          <mat-error *ngIf="projectName.touched && projectName.invalid">
+            <small *ngIf="projectName.hasError('required')">Name of the Project is required</small>
+          </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field>
+        <textarea
+          required
+          matInput
+          placeholder="Description for this Project" 
+          name="description"
+          [(ngModel)]="portfolio && portfolio.description"
+          #description = "ngModel"
+          rows=5
+          maxlength="500"
+        >
+        </textarea>
+        <mat-hint>
+          {{ description.value?.length }}/500
+        </mat-hint>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field>
+        <input
+          matInput
+          url
+          required
+          placeholder="Url to project" 
+          name="years"
+          [(ngModel)]="portfolio && portfolio.url"
+          #url = "ngModel"
+        >
+        <mat-error class="message-block" *ngIf="url.touched && url.invalid">
+          <small *ngIf="url.hasError('required')">Url of project is required</small>
+          <small *ngIf="url.hasError('url')">Invalid Url</small>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+        <mat-form-field>
+            <input
+              matInput
+              placeholder="Add tools/skills used" 
+              name="tools"
+              ngModel
+              #tools = "ngModel"
+              (keydown.enter)="getSkill(tools)"
+            >
+          </mat-form-field>
+
+
+          <div>
+              <span *ngFor="let tool of toolsSet" 
+                class="badge mr-2"
+                [ngClass]="'badge-' + tool.color"
+                (click)="removeSkill(tool.name)"
+                >
+                {{tool.name}}
+              <mat-icon class="md-9">clear</mat-icon> </span>
+          </div>
+
+    </div>
+
+        <mat-checkbox 
+        ngModel
+        name="finish"
+        required 
+        >Done</mat-checkbox>
+
+    <button type="button" mat-raised-button [disabled]="f.invalid" class="bg-primary btn-block" type="submit" (click)="save()">Save</button>
+    
+  </form>
+
+</mat-dialog-content>

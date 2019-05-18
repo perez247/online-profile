@@ -1,0 +1,107 @@
+.<h2 mat-dialog-title>Save Education</h2>
+
+<mat-dialog-content>
+
+  <form [formGroup]="form">
+    
+    <div class="form-group mt-2">
+      <mat-form-field>
+        <input 
+          matInput
+          placeholder="Name of institution"
+          formControlName="institution"
+          >
+          <mat-error *ngIf="form.get('institution').touched && form.get('institution').invalid">
+            <small *ngIf="form.get('institution').hasError('required')">Name of the institution is required</small>
+          </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field>
+        <input 
+          matInput
+          placeholder="location of Institution"
+          formControlName="location"
+          >
+          <mat-error *ngIf="form.get('location').touched && form.get('location').invalid">
+            <small *ngIf="form.get('location').hasError('required')">Location of institution is required</small>
+          </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form-group">
+      <mat-form-field>
+        <input 
+          matInput
+          placeholder="Course studied"
+          formControlName="courseOfStudy"
+          >
+          <mat-error *ngIf="form.get('courseOfStudy').touched && form.get('courseOfStudy').invalid">
+            <small *ngIf="form.get('courseOfStudy').hasError('required')">Course is required</small>
+          </mat-error>
+      </mat-form-field>
+    </div>
+
+    
+
+    <div class="form-group">
+        <mat-form-field>
+            <input 
+            matInput
+            placeholder="Grade scored in % (e.g 88%)"
+            formControlName="grade"
+            >
+          <mat-error *ngIf="form.get('grade').touched && form.get('grade').invalid">
+            <small *ngIf="form.get('grade').hasError('required')">Grade is required</small>
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+    <div class="form-group">
+        <div class="row">
+            <div class="col col-6">
+                <mat-form-field>
+                    <input matInput [matDatepicker]="start" placeholder="Start Date" formControlName="startDate">
+                    <mat-datepicker-toggle matSuffix [for]="start"></mat-datepicker-toggle>
+                    <mat-datepicker #start
+                                    startView="multi-year"
+                                    (yearSelected)="chosenYearHandler($event, 'startDate')"
+                                    (monthSelected)="chosenMonthHandler($event, start, 'startDate')"
+                                    panelClass="example-month-picker">
+                    </mat-datepicker>
+                    <mat-error class="message-block" *ngIf="form.get('startDate').touched && form.get('startDate').invalid">
+                        <small *ngIf="form.get('startDate').hasError('required')">Start date is required</small>
+                        <small *ngIf="form.get('startDate').hasError('invalidDateFormat')">Date is invalid</small>
+                        <small *ngIf="form.get('startDate').hasError('invalidDateLogic')">Date should not be in the future</small>
+                      </mat-error>
+                  </mat-form-field>
+            </div>
+    
+            <div class="col col-6">
+                <mat-form-field>
+                    <input matInput [matDatepicker]="end" placeholder="End Date" formControlName="endDate">
+                    <mat-datepicker-toggle matSuffix [for]="end"></mat-datepicker-toggle>
+                    <mat-datepicker #end
+                                    startView="multi-year"
+                                    (yearSelected)="chosenYearHandler($event, 'endDate')"
+                                    (monthSelected)="chosenMonthHandler($event, end, 'endDate')"
+                                    panelClass="example-month-picker">
+                    </mat-datepicker>
+                    <mat-error class="message-block" *ngIf="form.get('endDate').touched && form.get('endDate').invalid">
+                        <small *ngIf="form.get('endDate').hasError('invalidDateFormat')">Date is invalid</small>
+                        <small *ngIf="form.get('endDate').hasError('invalidDateLogic')">Date should not be in the future</small>
+                        <small *ngIf="form.get('endDate').hasError('invalidStartEnd')">Start Date is ahead of end date</small>
+                        <small *ngIf="form.get('endDate').hasError('required')">End date is required</small>
+                      </mat-error>
+                  </mat-form-field>
+            </div>
+        </div>
+
+    </div>
+
+    <button mat-raised-button [disabled]="form.invalid" class="bg-primary btn-block" type="submit" (click)="save()">Save</button>
+    
+  </form>
+
+</mat-dialog-content>

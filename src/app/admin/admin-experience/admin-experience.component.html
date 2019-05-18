@@ -1,0 +1,102 @@
+<section class="section-wrapper experience-wrapper">
+    <div class="container-fluid">
+        <div class="row border-bottom mb-5">
+            <div class="col-md-12">
+                <div class="section-title">
+                    <h1>Work Experience <button (click)="addExperience()" class="bg-success" mat-fab> <mat-icon>add</mat-icon> </button> </h1>
+                </div>
+            </div>
+        </div>    <!--first section-->
+    
+    
+        <div *ngFor="let exp of exps; let i=index; let odd=odd; let even=even">
+    
+          <div *ngIf="odd; then evenOne else oddOne"></div>
+    
+          <ng-template #oddOne>
+              <div class="row align-items-center how-it-works d-flex">
+                  <div class="col-2 text-center d-inline-flex justify-content-center align-items-center">
+                    <div class="circle font-weight-bold">{{ exp.chars }}</div>
+                  </div>
+
+                  <div class="col-9">
+
+                    <span class="h5">{{exp.role}}</span>
+
+                    <mat-icon (click)="editExperience(exp)" class="icons" aria-hidden="false" aria-label="edit icon">edit</mat-icon>
+                    <mat-icon (click)="deleteExperience(exp)" class="icons" aria-hidden="false" aria-label="delete icon">delete</mat-icon>
+
+                    <br><small class="text-secondary"> {{exp.companyName}}, {{ exp.location }} </small>
+
+                    <p>{{exp.achievements}}</p>
+
+                    <small class="text-secondary" >{{exp.duration()}}</small>
+
+                  </div>
+
+                </div>
+                <!--path between 1-2-->
+                <div class="row timeline">
+                  <div class="col-2">
+                    <div class="corner top-right"></div>
+                  </div>
+                  <div class="col-8">
+                    <hr/>
+                  </div>
+                  <div class="col-2">
+                    <div class="corner left-bottom"></div>
+                  </div>
+                </div>
+          </ng-template>
+    
+          <ng-template #evenOne>
+            <!--second section-->
+          <div class="row align-items-center justify-content-end how-it-works d-flex">
+    
+              <div class="col-9 text-right">
+    
+                <span class="h5">{{exp.role}}</span>
+                
+                <mat-icon (click)="editExperience(exp)" class="icons" aria-hidden="false" aria-label="edit icon">edit</mat-icon>
+                <mat-icon (click)="deleteExperience(exp)" class="icons" aria-hidden="false" aria-label="delete icon">delete</mat-icon>
+    
+                <br><small class="text-secondary"> {{exp.companyName}}, {{ exp.location }} </small>
+                
+                <p>{{exp.achievements}}</p>
+    
+                <small class="text-secondary" >{{exp.duration()}}</small>
+    
+              </div>
+    
+              <div class="col-2 text-center full d-inline-flex justify-content-center align-items-center">
+                <div class="circle font-weight-bold">{{ exp.chars }}</div>
+              </div>
+            </div>
+            <!--path between 2-3-->
+            <div class="row timeline">
+              <div class="col-2">
+                <div class="corner right-bottom"></div>
+              </div>
+              <div class="col-8">
+                <hr/>
+              </div>
+              <div class="col-2">
+                <div class="corner top-left"></div>
+              </div>
+            </div>
+          </ng-template>
+    
+          
+    
+    
+    
+    
+      
+    
+        </div>
+        
+    
+    
+      </div>
+</section>
+

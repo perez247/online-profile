@@ -1,0 +1,2 @@
+<app-public-skills *ngIf="!(AppUser | async)" ></app-public-skills>
+<app-admin-skills *ngIf="(AppUser | async)" ></app-admin-skills>

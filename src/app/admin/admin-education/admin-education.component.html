@@ -1,0 +1,49 @@
+<section class="section-wrapper section-education">
+    <div class="container-fluid">
+        <div class="row border-bottom mb-5">
+            <div class="col-md-12">
+                <div class="section-title"><h1>
+                    <app-home-glitch [text]="'Education'" ></app-home-glitch>
+                    <button (click)="addEducation()" class="bg-success" mat-fab> 
+                        <mat-icon>add</mat-icon> </button>  
+                    </h1></div>
+            </div>
+        </div>
+        
+
+              <!-- timeline item 1 -->
+              <div class="row" *ngFor="let edu of educationList">
+                    <!-- timeline item 1 left dot -->
+                    <div class="text-center flex-column d-sm-flex px-2">
+                        
+                        <h5>
+                            <span class="badge badge-pill p-3 bg-primary">{{ edu.chars }}</span>
+                        </h5>
+                        <div class="row h-50">
+                            <div class="col custom-border border-primary">&nbsp;</div>
+                            <div class="col">&nbsp;</div>
+                        </div>
+                    </div>
+                    <!-- timeline item 1 event content -->
+                    <div class="col py-2">
+                        <div class="card border-0">
+                            <div class="float-right text-muted bg-dark">
+                                    <mat-icon (click)="editEducation(edu)" class="icons" aria-hidden="false" aria-label="edit icon">edit</mat-icon>
+                                    <mat-icon (click)="deleteEducation(edu)" class="icons" aria-hidden="false" aria-label="delete icon">delete</mat-icon>
+                            </div>
+                            <div class="card-body bg-dark custom-card-border">
+                                <small class="h4 card-title text-muted">{{ edu.institution }},</small><small> {{ edu.location }}</small>
+                                <small class="h6 card-text d-block"> {{ edu.courseOfStudy }}{{ edu.gradeScore }} </small>
+                                <small>{{ edu.duration() }} </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+          </div>
+
+          
+  
+  </section>
+  
+      
+      
