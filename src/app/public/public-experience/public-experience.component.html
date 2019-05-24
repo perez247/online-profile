@@ -7,20 +7,20 @@
                 </div>
             </div>
         </div>    <!--first section-->
-    
-    
+
+
         <div *ngFor="let exp of exps; let i=index; let odd=odd; let even=even">
-    
+
           <div *ngIf="odd; then evenOne else oddOne"></div>
-    
+
           <ng-template #oddOne>
               <div class="row align-items-center how-it-works d-flex">
                   <div class="col-2 text-center d-inline-flex justify-content-center align-items-center">
-                    <div class="circle font-weight-bold">&</div>
+                    <div class="circle font-weight-bold">{{exp.chars}}</div>
                   </div>
                   <div class="col-9">
                     <span class="h5">{{exp.role}}</span>
-                    
+
                     <br><small class="text-secondary"> {{exp.companyName}}, {{ exp.location }} </small>
                     <p>{{exp.achievements}}</p>
                     <small class="text-secondary" >{{exp.duration()}}</small>
@@ -39,25 +39,25 @@
                   </div>
                 </div>
           </ng-template>
-    
+
           <ng-template #evenOne>
             <!--second section-->
           <div class="row align-items-center justify-content-end how-it-works d-flex">
-    
+
               <div class="col-9 text-right">
-    
+
                 <span clas="h5">{{exp.role}}</span>
-                
+
                 <br><small class="text-secondary"> {{exp.companyName}}, {{ exp.location }} </small>
-                
+
                 <p>{{exp.achievements}}</p>
-    
+
                 <small class="text-secondary" >{{exp.duration()}}</small>
-    
+
               </div>
-    
+
               <div class="col-2 text-center full d-inline-flex justify-content-center align-items-center">
-                <div class="circle font-weight-bold">#</div>
+                <div class="circle font-weight-bold">{{exp.chars}}</div>
               </div>
             </div>
             <!--path between 2-3-->
@@ -73,18 +73,18 @@
               </div>
             </div>
           </ng-template>
-    
-          
-    
-    
-    
-    
-      
-    
+
+
+
+
+
+
+
+
         </div>
-        
-    
-    
+
+
+
       </div>
 </section>
 
