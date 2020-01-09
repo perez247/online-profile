@@ -3,11 +3,15 @@
         <div class="row border-bottom mb-5">
             <div class="col-md-12">
                 <div class="section-title">
-                        <app-home-glitch [text]="'What I\'m all about'" ></app-home-glitch>
+                  <!-- You can use glitches instead of scramble text -->
+                  <!-- <app-home-glitch [text]="'What I\'m all about'" ></app-home-glitch> -->
+
+                  <!-- Using Scramble text as default -->
+                  <app-scramble-text [text]="'What I\'m all about'" ></app-scramble-text>
                 </div>
             </div>
         </div>
-        
+
         <div class="col-12">
                 <p>
                  {{ profile?.description_1 }}
@@ -41,7 +45,7 @@
                     </span>
 
             </div>
-            
+
             <div class="col-12 mb-2 border-bottom border-secondary">
                 <span class="h5">Others</span><br>
                 <span *ngFor="let skill of others"

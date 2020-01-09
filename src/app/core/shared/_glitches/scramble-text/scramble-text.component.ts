@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { TextScramble } from './scrambletext';
 
 @Component({
@@ -6,9 +6,11 @@ import { TextScramble } from './scrambletext';
   templateUrl: './scramble-text.component.html',
   styleUrls: ['./scramble-text.component.css']
 })
-export class ScrambleTextComponent implements OnInit {
+export class ScrambleTextComponent implements OnInit, OnDestroy {
 
   @Input() text: string;
+
+  handle: any;
 
   constructor() { }
 
@@ -25,7 +27,7 @@ export class ScrambleTextComponent implements OnInit {
     let counter = 0;
     const next = () => {
         fx.setText(caption[counter]).then(() => {
-          setTimeout(next, 10000);
+          this.handle = setTimeout(next, 10000);
         });
         counter = (counter + 1) % caption.length;
       };
@@ -36,26 +38,39 @@ export class ScrambleTextComponent implements OnInit {
   compileText(caption: string) {
 
     const textArray = [];
-    this.getFirstLetters(this.text);
 
-    for (let index = 0; index < 1; index++) {
+    let counter = 0;
 
+    // for (let index = 0; index < 1; index++) {
+
+    //   textArray.push(caption);
+    //   textArray.push(this.getRandomLetters(caption));
+
+    // }
+
+    while (caption.length > counter) {
       textArray.push(caption);
-      textArray.push(this.getFirstLetters(caption));
+      textArray.push(this.getRandomLetters(caption));
 
+      counter++;
     }
 
     return textArray;
   }
 
-  getFirstLetters(text: string) {
+  getRandomLetters(text: string) {
     let letters = '';
 
     text.split(' ').forEach((element: string) => {
-      letters += element.charAt(0) + ' ';
+      const index = Math.floor(Math.random() * (element.length - 1) );
+      letters += element.charAt(index) + ' ';
     });
 
     return letters;
+  }
+
+  ngOnDestroy() {
+    clearTimeout(this.handle);
   }
 
 }
