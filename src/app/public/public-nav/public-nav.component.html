@@ -2,7 +2,7 @@
   <div class="custom-navbtn sticky-top">
     <div class="list-group retro-font">
       <a (click)="close()" [routerLink]="['/home']" class="list-group-item list-group-item-action"><h1>
-        <app-wrapper-sidebar-glitch></app-wrapper-sidebar-glitch>
+        <app-wrapper-sidebar-glitch [firstWord]="'Bald•'" [secondWord]="'A-P-E'" ></app-wrapper-sidebar-glitch>
           <img src="/assets/img/favicon.png" class="pb-3" height="60" >
         </h1>
       </a>
@@ -12,11 +12,11 @@
       <a (click)="close()" [routerLink]="['/education']" routerLinkActive="router-link-active"  class="list-group-item list-group-item-action">Education</a>
       <a (click)="close()" [routerLink]="['/portfolio']" routerLinkActive="router-link-active"  class="list-group-item list-group-item-action">Portfolio</a>
       <a (click)="close()" [routerLink]="['/contact']" routerLinkActive="router-link-active"  class="list-group-item list-group-item-action">Get in touch</a>
-      <a 
-        *ngIf="!(AppUser | async)" 
-        (click)="justClose()" 
-        [routerLink]="['/auth']" 
-        routerLinkActive="router-link-active"  
+      <a
+        *ngIf="!(AppUser | async)"
+        (click)="justClose()"
+        [routerLink]="['/auth']"
+        routerLinkActive="router-link-active"
         class="list-group-item list-group-item-action">Login</a>
       <a *ngIf="(AppUser | async)" (click)="logout(); justClose()" [routerLink]="['/home']" routerLinkActive="router-link-active"  class="list-group-item list-group-item-action">
         logout

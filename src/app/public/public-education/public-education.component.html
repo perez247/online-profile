@@ -3,18 +3,23 @@
       <div class="row border-bottom mb-5">
           <div class="col-md-12">
               <div class="section-title">
-                  <app-home-glitch [text]="'Education'" ></app-home-glitch>
+
+                  <!-- You can use glitches instead of scramble text -->
+                  <!-- <app-home-glitch [text]="'Education'" ></app-home-glitch> -->
+
+                  <!-- Using Scramble text as default -->
+                  <app-scramble-text [text]="'Education'" ></app-scramble-text>
               </div>
           </div>
       </div>
-      
-      
-        
+
+
+
             <!-- timeline item 1 -->
             <div class="row" *ngFor="let edu of educationList">
                 <!-- timeline item 1 left dot -->
                 <div class="text-center flex-column d-sm-flex px-2">
-                    
+
                     <h5>
                         <span class="badge badge-pill p-3 bg-primary">{{ edu.chars }}</span>
                     </h5>

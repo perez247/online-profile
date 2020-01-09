@@ -46,5 +46,5 @@ Thumbs.db
 #remove environment folder
 environments/
 
-# #remove firebase folder
-# .firebase/
+#remove firebase folder
+.firebase/

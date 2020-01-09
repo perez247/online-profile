@@ -56,6 +56,7 @@ import { ContactsComponent } from '../modules/contacts/contacts.component';
 import { SaveContactsSocialComponent } from './_modals/save-contacts-social/save-contacts-social.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import { ScrambleTextComponent } from './_glitches/scramble-text/scramble-text.component';
 
 
 @NgModule({
@@ -89,7 +90,8 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
     WrapperSidebarGlitchComponent,
     AdminContactComponent,
     ContactsComponent,
-    SaveContactsSocialComponent
+    SaveContactsSocialComponent,
+    ScrambleTextComponent
   ],
   imports: [
     BrowserModule,
@@ -154,7 +156,8 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
     WrapperSidebarGlitchComponent,
     AdminContactComponent,
     ContactsComponent,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    ScrambleTextComponent
   ],
   entryComponents: [
     SaveSkillsComponent,

@@ -3,7 +3,13 @@
             <div class="row border-bottom mb-5">
                 <div class="col-md-12">
                     <div class="section-title">
-                            <app-home-glitch [text]="'Portfolio'" ></app-home-glitch>
+
+                      <!-- You can use glitches instead of scramble text -->
+                      <!-- <app-home-glitch [text]="'Portfolio'" ></app-home-glitch> -->
+
+                      <!-- Using Scramble text as default -->
+                      <app-scramble-text [text]="'Portfolio'" ></app-scramble-text>
+
                     </div>
                 </div>
             </div>
@@ -12,16 +18,15 @@
                       <div class="card bg-dark shadow border-primary" style="width: 18rem;" >
                           <div class="card-body">
                               <h2 class="card-title">
-    
                                     {{ port.projectName }}
                                 </h2>
-    
-                              
+
+
                               <p class="card-text border-bottom pb-1">
                                   <span class="d-block">{{ port.description }}</span>
                                   <a target="_blank" class="btn btn-primary btn-sm border-0" [href]="port.url">visit website</a>
                               </p>
-                              <span *ngFor="let tool of getTools(port.projectName)" 
+                              <span *ngFor="let tool of getTools(port.projectName)"
                                 class="badge mr-2"
                                 [ngClass] = "'badge-' + tool.color"
                                 >
@@ -30,7 +35,7 @@
                           </div>
                       </div>
                   </div>
-      
+
             </div>
             <!-- /.row -->
         </div>

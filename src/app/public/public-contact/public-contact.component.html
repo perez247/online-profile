@@ -3,14 +3,18 @@
       <div class="row border-bottom mb-5">
           <div class="col-md-12">
               <div class="section-title">
-                    <app-home-glitch [text]="'Get in touch '" ></app-home-glitch>
+                    <!-- You can use glitches instead of scramble text -->
+                    <!-- <app-home-glitch [text]="'Get in touch'" ></app-home-glitch> -->
+
+                    <!-- Using Scramble text as default -->
+                    <app-scramble-text [text]="'Get in touch'" ></app-scramble-text>
               </div>
           </div>
       </div>
       <!--.row-->
       <div class="row">
           <div class="col-md-12">
-                
+
               <p class=" h6 mb-3" >
                     <span class="d-block"><i class="fa fa-phone fa-lg" aria-hidden="true"></i> : {{ contacts?.phone }}</span>
                     <br><span class="d-block"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i> : {{ contacts?.email }}</span>
@@ -28,4 +32,4 @@
       </div>
   </div>
   <!--.container-fluid-->
-</section> 
+</section>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-wrapper-sidebar-glitch',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./wrapper-sidebar-glitch.component.css']
 })
 export class WrapperSidebarGlitchComponent implements OnInit {
+
+  @Input() firstWord: string;
+  @Input() secondWord: string;
 
   constructor() { }
 

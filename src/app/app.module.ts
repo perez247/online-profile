@@ -6,7 +6,6 @@ import { SharedModule } from './core/shared/shared.module';
 import { IAppState, INITIAL_STATE, rootReducer } from './core/state-management/root/root-store';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,

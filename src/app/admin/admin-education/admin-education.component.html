@@ -3,19 +3,19 @@
         <div class="row border-bottom mb-5">
             <div class="col-md-12">
                 <div class="section-title"><h1>
-                    <app-home-glitch [text]="'Education'" ></app-home-glitch>
-                    <button (click)="addEducation()" class="bg-success" mat-fab> 
-                        <mat-icon>add</mat-icon> </button>  
+                    Education &nbsp;
+                    <button (click)="addEducation()" class="bg-success" mat-fab>
+                        <mat-icon>add</mat-icon> </button>
                     </h1></div>
             </div>
         </div>
-        
+
 
               <!-- timeline item 1 -->
               <div class="row" *ngFor="let edu of educationList">
                     <!-- timeline item 1 left dot -->
                     <div class="text-center flex-column d-sm-flex px-2">
-                        
+
                         <h5>
                             <span class="badge badge-pill p-3 bg-primary">{{ edu.chars }}</span>
                         </h5>
@@ -41,9 +41,8 @@
                 </div>
           </div>
 
-          
-  
+
+
   </section>
-  
-      
-      
+
+
